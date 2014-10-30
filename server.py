@@ -1,8 +1,10 @@
 #!/usr/bin/env python
+import os
 from flask import Flask, render_template, jsonify, request
 from pymongo import MongoClient
 
 app = Flask(__name__)
+app.config['base_uri'] = "http://product.christopher.su"
 
 # ###################################################################
 # Check if running locally on on Heroku and setup MongoDB accordingly
@@ -26,8 +28,9 @@ else:
 
 @app.route('/', methods=['GET'])
 def index():
-    return render_template('index.html', header='Flask Skeleton', title='Flask Skeleton', body='''
-        <p>Some content can go here!</p>
+    return render_template('index.html', header='Product Prompt', title='Product Prompt', jumbotron='''
+        <p class="lead" id="prompt">Click the button below to get a product design prompt!</p>
+        <p><a class="btn btn-lg btn-success" id="prompt-btn" href="#" role="button">Acquire Prompt</a></p>
         ''')
 
 # ###################################################################
