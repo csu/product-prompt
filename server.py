@@ -6,6 +6,13 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 app.config['base_uri'] = "http://product.christopher.su"
 
+# log to stderr
+import logging
+from logging import StreamHandler
+file_handler = StreamHandler()
+app.logger.setLevel(logging.DEBUG)  # set the desired logging level here
+app.logger.addHandler(file_handler)
+
 # ###################################################################
 # Routes
 # ###################################################################
