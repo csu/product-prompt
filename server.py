@@ -28,7 +28,7 @@ def index():
         ''')
 
 @app.route('/random', methods=['GET'])
-def random():
+def random_route():
     return render_template('redirect.html', url=app.config['base_uri'] + '/' + random.choice(products) + '/' + random.choice(constraints))
 
 @app.route('/<product>/<constraint>', methods=['GET'])
