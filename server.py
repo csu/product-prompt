@@ -44,17 +44,6 @@ def product_route(product, constraint):
         return render_template('index.html', header='Product Prompt', title = prefix + product + " " + constraint, jumbotron='''
             <p class="lead" id="prompt">''' + prefix + product + " " + constraint + '''</p>
             <p><a class="btn btn-success" id="prompt-btn" href="/random" role="button">Get Another Prompt</a></p>
-            ''', body='''
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        var disqus_shortname = 'productprompt';
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
             ''')
     else:
         return render_template('redirect.html', url=app.config['base_uri'])
