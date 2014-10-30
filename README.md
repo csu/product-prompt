@@ -1,4 +1,4 @@
 [Product Prompt](http://product.christopher.su/)
 ==============
 
-Discuss product design prompts with others.
+Get product design prompts and discuss ideas with others.
