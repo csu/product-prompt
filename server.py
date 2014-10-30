@@ -1,34 +1,16 @@
 #!/usr/bin/env python
 import os
 import random
-from flask import Flask, render_template, jsonify, request
-from pymongo import MongoClient
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 app.config['base_uri'] = "http://product.christopher.su"
 
 # ###################################################################
-# Check if running locally on on Heroku and setup MongoDB accordingly
-# ###################################################################
-on_heroku = False
-if 'MONGOLAB_URI' in os.environ:
-  on_heroku = True
-
-if on_heroku:
-    client = MongoClient(os.environ['MONGOLAB_URI'])
-    db = client.get_default_database()
-    collection = db.data
-else:
-    client = MongoClient('mongodb://localhost:27017/')
-    db = client.instachart
-    collection = db.data
-
-# ###################################################################
 # Routes
 # ###################################################################
-
-products = ['alarm clock', 'television', 'microwave', 'keyboard', 'water bottle', 'eBook reader', 'phone', 'chair', 'trash can', 'stopwatch', 'wallet', 'keychain', 'bicycle', 'binder', 'notebook']
-constraints = ['for the visually impaired', 'for the elderly', 'for children', 'for families with children', 'for the hearing impaired', 'for the speech impaired', 'for astronauts']
+products = ['alarm-clock', 'television', 'microwave', 'keyboard', 'water-bottle', 'eBook-reader', 'phone', 'chair', 'trash-can', 'stopwatch', 'wallet', 'keychain', 'bicycle', 'binder', 'notebook']
+constraints = ['for-the-visually-impaired', 'for-the-elderly', 'for-children', 'for-families-with-children', 'for-the-hearing-impaired', 'for-the-speech-impaired', 'for-astronauts']
 
 @app.route('/', methods=['GET'])
 def index():
