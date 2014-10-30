@@ -41,8 +41,8 @@ def product_route(product, constraint):
         if product[0].lower() in vowels:
             prefix = "Design an "
 
-        return render_template('index.html', header='Product Prompt', title = prefix + product + constraint, jumbotron='''
-            <p class="lead" id="prompt">''' + prefix + product + constraint + '''</p>
+        return render_template('index.html', header='Product Prompt', title = prefix + product + " " + constraint, jumbotron='''
+            <p class="lead" id="prompt">''' + prefix + product + " " + constraint + '''</p>
             <p><a class="btn btn-success" id="prompt-btn" href="/random" role="button">Get Another Prompt</a></p>
             ''', body='''
     <div id="disqus_thread"></div>
